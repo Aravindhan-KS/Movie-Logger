@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Finder</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="nav-bar">
+            <navbar>
+                <ul>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                </ul>
+            </navbar>
+        </div>
+        <br>
+        <div class="time-watched">
+            <p>Time Watched: <span id="time-watched">0</span> minutes</p>
+        </div>
+        <br>
+        <div class="input">
+            <form id="movie-form" method="get"> 
+                Movie Name <input type='text' id="movie-input" name="movie"><br>
+                <input type="submit" value="Add Movie">
+            </form>
+        </div>
+        <div id="results"></div>
+         <script>
+            let totalTimeWatched = 0;
+            const movieTitles = new Set();
+    
+            document.getElementById('movie-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const movieName = document.getElementById('movie-input').value.trim();
+                if (movieTitles.has(movieName)) {
+                    alert('Movie already added.');
+                    return;
+                }
+    
+                fetch(`https://www.omdbapi.com/?t=${movieName}&apikey=68d51e0d`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.Response === "False") {
+                            alert('No results found.');
+                            return;
+                        }
+    
+                        movieTitles.add(movieName);
+                        const resultsDiv = document.getElementById('results');
+                        const movieDiv = document.createElement('div');
+                        movieDiv.classList.add('movieDiv');
+                        movieDiv.innerHTML = `
+                                <br>
+                                <div class="movie-container">
+                                    <h2 class="movie-title">${data.Title}</h2>
+                                    <div class="movie-content">
+                                        <img class="movie-poster" src="${data.Poster}" alt="${data.Title}">
+                                        <ul class="movie-details">
+                                            <li><strong>Year:</strong> ${data.Year}</li>
+                                            <li><strong>Genre:</strong> ${data.Genre}</li>
+                                            <li><strong>Director:</strong> ${data.Director}</li>
+                                            <li><strong>Actors:</strong> ${data.Actors}</li>
+                                            <li><strong>Plot:</strong> ${data.Plot}</li>
+                                            <li><strong>Runtime:</strong> ${data.Runtime}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            `;
+                        resultsDiv.prepend(movieDiv);
+    
+                        totalTimeWatched += parseInt(data.Runtime);
+                        document.getElementById('time-watched').textContent = totalTimeWatched;
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            });
+        </script>
+    </body>
+</html>
