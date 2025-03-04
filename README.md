@@ -1,7 +1,7 @@
-# Movie Logger Simple
+# Movie Logger 
 
 ## Overview
-Movie Logger Simple is a web-based application that allows users to search for movies by title and retrieve detailed information such as the release date, overview, ratings, and more. The application leverages The Open Movie Database (OMDb) API to fetch and display movie data in a user-friendly interface. Additionally, this project includes users to log and track movies they have watched, providing insights into their viewing history.
+Movie Logger is a web-based application that allows users to search for movies by title and retrieve detailed information such as the release date, overview, ratings, and more. The application leverages The Open Movie Database (OMDb) API to fetch and display movie data in a user-friendly interface. Additionally, this project includes users to log and track movies they have watched, providing insights into their viewing history.
 
 ## Features
 - **Movie Logger System**:
