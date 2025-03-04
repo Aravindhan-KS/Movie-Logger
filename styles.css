@@ -39,6 +39,14 @@ body {
   font-size: 30px;
 }
 
+.watchlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-evenly;
+  min-height: 100px;
+}
+
 .stats {
   display: flex;
   justify-content: space-evenly;
@@ -46,7 +54,8 @@ body {
   min-height: 200px;
 }
 
-.time-watched {
+.time-watched,
+p {
   font-family: "Open Sans", sans-serif;
   font-size: 35px;
   display: flex;
@@ -114,11 +123,25 @@ body {
   color: #ffffff;
 }
 
-input[type="text"] {
-  width: 100%;
+#movieSearch {
+  width: 800%;
   max-width: 500px;
   padding: 10px;
   margin: 10px 0;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #333;
+  color: #aaa;
+}
+
+input[type="text"],
+text,
+.Search input[type="text"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 20px;
+  margin: 10px auto;
   border: 1px solid #aaa;
   border-radius: 5px;
   font-size: 16px;
@@ -130,7 +153,8 @@ input[type="text"]::placeholder {
   color: #bbb;
 }
 
-input[type="submit"] {
+input[type="submit"],
+#searchBtn {
   padding: 10px 20px;
   background-color: #4caf50;
   color: white;
@@ -139,9 +163,43 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 16px;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+#searchBtn:hover {
   background-color: #45a049;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.movie {
+  background-color: #605c5c;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+button.add-to-watchlist {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.remove-from-watchlist {
+  background-color: #f44336;
+  color: white;
 }

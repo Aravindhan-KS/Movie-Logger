@@ -6,7 +6,7 @@
     <title>Login</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Open Sans", sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -55,25 +55,25 @@
   </head>
   <body>
     <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button onclick="login()">Login</button>
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button onclick="login()">Login</button>
     </div>
 
     <script>
-        function login() {
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
+      function login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
 
-            if (username === "user" && password === "pass") {
-                alert("Login successful!");
-                localStorage.setItem("loggedIn", "true");
-                window.location.href = "movies.html"; 
-            } else {
-                alert("Invalid username or password.");
-            }
+        if (username === "user" && password === "pass") {
+          alert("Login successful!");
+          localStorage.setItem("loggedIn", "true");
+          window.location.href = "movies.html";
+        } else {
+          alert("Invalid username or password.");
         }
+      }
     </script>
   </body>
 </html>
