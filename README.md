@@ -3,6 +3,9 @@
 ## Overview
 Movie Logger is a web-based application that allows users to search for movies by title and retrieve detailed information such as the release date, overview, ratings, and more. The application leverages The Open Movie Database (OMDb) API to fetch and display movie data in a user-friendly interface. Additionally, this project includes users to log and track movies they have watched, providing insights into their viewing history.
 
+## Note
+  - This project works well while using Live Server extension in VS Code or any other servering related extension or also by hosting service.
+
 ## Features
 - **Movie Logger System**:
   - User authentication with a login page
